@@ -214,3 +214,146 @@ SQL: SELECT * FROM `think_my_admin`  [ RunTime:0.000331s ]
 ERR: Table 'softsystem.think_my_admin' doesn't exist
  [ SQL语句 ] : SELECT * FROM `think_my_admin` 
 
+[ 2016-04-10T22:03:55+08:00 ] 127.0.0.1 /
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001990s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.008106s ]
+SQL: SHOW COLUMNS FROM `think_my_admin` [ RunTime:0.032270s ]
+ERR: Table 'softsystem.think_my_admin' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `think_my_admin`
+SQL: SELECT * FROM `think_my_admin`  [ RunTime:0.000377s ]
+ERR: Table 'softsystem.think_my_admin' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `think_my_admin` 
+
+[ 2016-04-10T22:09:20+08:00 ] ERR: (ThinkException) Unknown database 'softsystem'
+[ 2016-04-10T22:10:00+08:00 ] 127.0.0.1 /
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.002011s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002144s ]
+SQL: SHOW COLUMNS FROM `think_my_admin` [ RunTime:0.007253s ]
+ERR: Table 'softsystem.think_my_admin' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `think_my_admin`
+SQL: SELECT * FROM `think_my_admin`  [ RunTime:0.000403s ]
+ERR: Table 'softsystem.think_my_admin' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `think_my_admin` 
+
+[ 2016-04-10T22:15:28+08:00 ] 127.0.0.1 /
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.002190s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002314s ]
+SQL: SHOW COLUMNS FROM `sf_my_admin` [ RunTime:0.006990s ]
+ERR: Table 'softsystem.sf_my_admin' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `sf_my_admin`
+SQL: SELECT * FROM `sf_my_admin`  [ RunTime:0.000367s ]
+ERR: Table 'softsystem.sf_my_admin' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `sf_my_admin` 
+
+[ 2016-04-10T22:15:30+08:00 ] 127.0.0.1 /
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.002043s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002161s ]
+SQL: SHOW COLUMNS FROM `sf_my_admin` [ RunTime:0.006984s ]
+ERR: Table 'softsystem.sf_my_admin' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `sf_my_admin`
+SQL: SELECT * FROM `sf_my_admin`  [ RunTime:0.000345s ]
+ERR: Table 'softsystem.sf_my_admin' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `sf_my_admin` 
+
+[ 2016-04-10T22:19:04+08:00 ] 127.0.0.1 /
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.002095s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002215s ]
+SQL: SHOW COLUMNS FROM `sf_sf_admin` [ RunTime:0.008327s ]
+ERR: Table 'softsystem.sf_sf_admin' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `sf_sf_admin`
+SQL: SELECT * FROM `sf_sf_admin`  [ RunTime:0.000385s ]
+ERR: Table 'softsystem.sf_sf_admin' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `sf_sf_admin` 
+
+[ 2016-04-10T22:19:05+08:00 ] 127.0.0.1 /
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001802s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001906s ]
+SQL: SHOW COLUMNS FROM `sf_sf_admin` [ RunTime:0.007660s ]
+ERR: Table 'softsystem.sf_sf_admin' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `sf_sf_admin`
+SQL: SELECT * FROM `sf_sf_admin`  [ RunTime:0.000345s ]
+ERR: Table 'softsystem.sf_sf_admin' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `sf_sf_admin` 
+
+[ 2016-04-10T22:19:07+08:00 ] 127.0.0.1 /
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001962s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002073s ]
+SQL: SHOW COLUMNS FROM `sf_sf_admin` [ RunTime:0.006993s ]
+ERR: Table 'softsystem.sf_sf_admin' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `sf_sf_admin`
+SQL: SELECT * FROM `sf_sf_admin`  [ RunTime:0.000341s ]
+ERR: Table 'softsystem.sf_sf_admin' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `sf_sf_admin` 
+
+[ 2016-04-10T22:19:36+08:00 ] 127.0.0.1 /
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001271s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001403s ]
+SQL: SHOW COLUMNS FROM `sf_sf_admin` [ RunTime:0.007408s ]
+ERR: Table 'softsystem.sf_sf_admin' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `sf_sf_admin`
+SQL: SELECT * FROM `sf_sf_admin`  [ RunTime:0.000354s ]
+ERR: Table 'softsystem.sf_sf_admin' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `sf_sf_admin` 
+
+[ 2016-04-10T22:19:37+08:00 ] 127.0.0.1 /
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000574s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000668s ]
+SQL: SHOW COLUMNS FROM `sf_sf_admin` [ RunTime:0.007406s ]
+ERR: Table 'softsystem.sf_sf_admin' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `sf_sf_admin`
+SQL: SELECT * FROM `sf_sf_admin`  [ RunTime:0.000343s ]
+ERR: Table 'softsystem.sf_sf_admin' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `sf_sf_admin` 
+
+[ 2016-04-10T22:19:37+08:00 ] 127.0.0.1 /
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000564s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000667s ]
+SQL: SHOW COLUMNS FROM `sf_sf_admin` [ RunTime:0.009008s ]
+ERR: Table 'softsystem.sf_sf_admin' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `sf_sf_admin`
+SQL: SELECT * FROM `sf_sf_admin`  [ RunTime:0.000492s ]
+ERR: Table 'softsystem.sf_sf_admin' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `sf_sf_admin` 
+
+[ 2016-04-10T22:19:37+08:00 ] 127.0.0.1 /
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000568s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000706s ]
+SQL: SHOW COLUMNS FROM `sf_sf_admin` [ RunTime:0.006781s ]
+ERR: Table 'softsystem.sf_sf_admin' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `sf_sf_admin`
+SQL: SELECT * FROM `sf_sf_admin`  [ RunTime:0.000352s ]
+ERR: Table 'softsystem.sf_sf_admin' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `sf_sf_admin` 
+
+[ 2016-04-10T22:21:30+08:00 ] 127.0.0.1 /
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000595s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000705s ]
+SQL: SHOW COLUMNS FROM `sf_admin` [ RunTime:0.008552s ]
+SQL: SELECT * FROM `sf_admin`  [ RunTime:0.000207s ]
+
+[ 2016-04-10T22:21:55+08:00 ] 127.0.0.1 /
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001101s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001196s ]
+SQL: SHOW COLUMNS FROM `sf_admin` [ RunTime:0.007104s ]
+SQL: SELECT * FROM `sf_admin`  [ RunTime:0.000255s ]
+
+[ 2016-04-10T22:22:14+08:00 ] 127.0.0.1 /
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000550s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000650s ]
+SQL: SHOW COLUMNS FROM `sf_admin` [ RunTime:0.007914s ]
+SQL: SELECT * FROM `sf_admin`  [ RunTime:0.000265s ]
+
