@@ -1,65 +1,41 @@
+<!DOCTYPE HTML>
 <html>
-  <head>
-  <title>XXX公司</title>
-  </head>
+<head>
+<meta charset="utf-8">
+<title>跟进系统后台</title>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/login.js"></script>
+<link rel="stylesheet" type="text/css" href="css/reset.css">
+<link rel="stylesheet" type="text/css" href="css/login.css">
+</head>
 <body>
-
-<div style="color:#00FF00">
-<h1>XX公司欢迎您！</h1>
-</div>
-
- <div id="main" align="left">
-<table  width=100%>
-
- <img src="__PUBLIC__/Images/banner_logo.jpg"/>
- </table>
-	<form action="__APP__/Login/dologin" method="POST">
-		<table border="2" bgcolor=grey width="280" height="200" align="right">
-				<tr>
-					<td> 
-						用户名:
-					</td>
-					<td>
-						<input type="text" name="username" />
-					</td>
-				</tr>
-
-				<tr> 
-					<td>
-						密码：
-					</td>
-					<td>
-					<input  type="text" name="password"/>
-				    </td>
-				</tr>
-
-				<tr> 
-					<td>
-					验证码：
-					</td>
-					 <td>
-					<input  type="text" name="code"/>
-					
-                 <img src='__APP__//Public/code' onclick="this.src=this.src+'?'+Math.random()"/>
-					</td>
-				
-				</tr>
-					
-				<tr>
-					<td colspan="2" align="center">
-					<input type="submit" name="submit" value="提交" / >
-					<input type="reset" name="reset" value="重置" />
-					</td>
-				</tr>
-		<table>
-	</form>
-</div>
-<div id="footer">
-<p>
-<a href="">联系我们</a>
-<a href="">收藏我们</a>
-</p>
-
-</div>
+	 <div class="login">
+	 	<img src="images/logo.jpg" style="padding-top:20px;width:400px;">
+	 	<div class="login_p">
+	 		<span class="u_logo"></span>
+	 		<input class="ipt" type="text" placeholder="请输入账号">
+	 	</div>
+	 	<div style="position: relative;">
+	 		<span class="p_logo"></span>
+	 		<input class="ipt" type="password" placeholder="请输入密码">
+	 	</div>
+	 	<div>
+	 		<select class="ipt ipt_secect" name="user">
+	 		 	<option value="1">管理员</option>
+	 		 	<option value="2">业务员</option>
+	 		 	<option value="3">跟单员</option>
+	 		 	<option value="4">设计师</option>
+	 		 	<option value="5">客户</option>
+	 		 	<option value="6">车间</option>
+	 		 </select>
+	 	</div>
+	 	<div>
+	 		<input class="ipt" style="width:200px;margin-top:10px;" type="text" name="code" placeholder="请输入验证码"/>
+	 		<img id="code" src='/detai/home/index.php/Public/code' onclick="this.src=this.src+'?'+Math.random()"/>
+	 	</div>
+	 	<div class="enterDiv">
+	 		<a id="enter" href="javascript:void(0);">登陆</a>
+	 	</div>
+	 </div>
 </body>
 </html>
