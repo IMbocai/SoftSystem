@@ -1,4 +1,6 @@
 $(document).ready(function(){
+	alert("hello");
+	console.log("hello");
 	$("#enter").click(function(){
 		login();
 	});
