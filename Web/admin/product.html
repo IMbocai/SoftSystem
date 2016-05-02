@@ -1,0 +1,169 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>软件设计开发跟进系统</title>
+<link rel="stylesheet" href="../public/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../public/css/reset.css">
+<link rel="stylesheet" type="text/css" href="../public/css/style.css">
+</head>
+<body>
+<!-- header -->
+<header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner" style="background-color:#1A86C0;margin-bottom:0;">
+  <div class="container">
+    <div class="navbar-header">
+      <a href="../" class="navbar-brand">Logo</a>
+    </div>
+    <nav id="bs-navbar" class="collapse navbar-collapse">
+      <ul id="nav_ul" class="nav navbar-nav">
+        <li class="active">
+          <a>欢迎登陆</a>
+        </li>
+        <li class="active">
+          <a>admin</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+      	<li><a href="">消息通知</a></li>
+      	<!-- <li><a href="">修改密码</a></li> -->
+        <li><a id="logout" href="javascript:void(0);">退出</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<!-- menu -->
+<div class="sidebar-scroll" style="overflow: hidden; outline: none;" tabindex="5000">
+	<div id="sidebar" class="nav-collapse collapse">
+		<ul class="sidebar-menu">
+			<li class="sub-menu">
+			    <a class="" href="index.html">
+			        <i class="glyphicon glyphicon-user"></i>
+			        <span>成员管理</span>
+			    </a>
+			</li>
+			<li class="sub-menu active">
+			    <a class="" href="product.html">
+			        <i class="glyphicon glyphicon-indent-left"></i>
+			        <span>产品管理</span>
+			    </a>
+			</li>
+			<li class="sub-menu">
+			    <a class="" href="todo.html">
+			        <i class="glyphicon glyphicon-tags"></i>
+			        <span>个人任务</span>
+			    </a>
+			</li>
+			<li class="sub-menu">
+			    <a class="" href="password.html">
+			        <i class="glyphicon glyphicon-edit"></i>
+			        <span>修改密码</span>
+			    </a>
+			</li>
+			<li class="sub-menu">
+			    <a class="" href="userInfo.html">
+			        <i class="glyphicon glyphicon-send"></i>
+			        <span>个人资料</span>
+			    </a>
+			</li>
+		</ul>
+	 <!-- END SIDEBAR MENU -->
+	</div>
+</div>
+<!-- main -->
+<div id="main-content">
+	 <div class="container-fluid">
+	    <div class="row-fluid">
+	       <div class="span12">
+	           <h3 class="page-title">
+	            产品管理
+	           </h3>
+	           <ol class="breadcrumb">
+				  <li class="active">productManage</li>
+				</ol>
+	       </div>
+	    </div>
+	    <div class="row-fluid">
+	        <div class="span9 responsive" data-tablet="span9 fix-margin" data-desktop="span9">
+	            <div class="widget yellow">
+	                <div class="widget-body">
+	                    <div id="calendar" class="has-toolbar fc pull-left" style="width:100%;">
+	                    	<div class="btn-group">
+	                    	  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	                    	     紧急程度<span class="caret"></span>
+	                    	  </button>
+	                    	  <ul class="dropdown-menu">
+	                    	    <li><a href="#">低</a></li>
+	                    	    <li><a href="#">中</a></li>
+	                    	    <li><a href="#">高</a></li>
+	                    	    <li><a href="#">紧急</a></li>
+	                    	  </ul>
+	                    	</div>
+	                    	<i class="glyphicon glyphicon-plus"></i>
+	                    	<div class="btn-group">
+	                    	  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	                    	     产品阶段<span class="caret"></span>
+	                    	  </button>
+	                    	  <ul class="dropdown-menu">
+	                    	    <li><a href="#">1：产品需求期</a></li>
+	                    	    <li><a href="#">2：产品设计期</a></li>
+	                    	    <li><a href="#">3：产品开发期</a></li>
+	                    	    <li><a href="#">4：产品测试期</a></li>
+	                    	    <li><a href="#">5：产品上线期</a></li>
+	                    	    <li><a href="#">6：产品下线期</a></li>
+	                    	    <li><a href="#">7：产品作废</a></li>
+	                    	  </ul>
+	                    	</div>
+	                    	<i class="glyphicon glyphicon-random"></i>
+	                    	<a href="" class="btn btn-success">查看</a>
+	                    	<table class="table table-bordered table-hover">
+	                    		<thead>
+	                                <tr>
+	                                    <!-- <th>#</th> -->
+	                                    <th>姓名名称</th>
+	                                    <th>项目概述</th>
+	                                    <th>立项人(产品负责人)</th>
+	                                    <th>立项时间</th>
+	                                    <th>紧急程度</th>
+	                                    <th>当前阶段</th>
+	                                    <th>详细</th>
+	                                </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>软件</td>
+                                        <td>123</td>
+                                        <td>施旭波</td>
+                                        <td>2016-10-1</td>
+                                        <td>低-中-高-紧急</td>
+                                        <td>立项阶段</td>
+                                        <td>
+                                        	<a href="" style="color:blue"><i class="glyphicon glyphicon-list-alt"></i>详细</a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+	                    	</table>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>       
+	 </div>
+</div>
+<div id="footer">
+    2016 © shixubo-3112006441.
+</div>
+<script type="text/javascript" src="../public/js/jquery-1.11.1.min.js"></script>
+<script src="../public/bootstrap/js/bootstrap.min.js"></script>
+<script src="../public/js/jquery.nicescroll.min.js"></script>
+<script src="../public/js/logout.js"></script>
+<script>
+	$(document).ready(function(){
+		$("#main-content").niceScroll({
+			cursorcolor:"#1A86C0",
+			cursorwidth: "10px"
+		});
+	})
+
+</script>
+</body>
+</html>

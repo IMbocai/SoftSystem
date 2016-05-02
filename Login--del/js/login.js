@@ -7,7 +7,7 @@ $(document).ready(function(){
 			login();
 		}
 	})
-	var zone = "/";
+	var zone = "/SoftSystem/";
 	//登陆验证
 	function login(){
 		//var level = parseInt($("input[name='user']:checked").val());
@@ -35,9 +35,9 @@ $(document).ready(function(){
 	function dump(num){
 		switch(num){
 			case 1:
-				window.location.href = zone+"Web/admin/";
+				window.location.href = zone+"admin/";
 				break;
-			/*case 2:
+			case 2:
 				window.location.href = zone+"salesman/";
 				break;
 			case 3:
@@ -51,7 +51,7 @@ $(document).ready(function(){
 				break;
 			case 6:
 				window.location.href = zone+"supplier/";
-				break;*/
+				break;
 		}
 	}
 })
