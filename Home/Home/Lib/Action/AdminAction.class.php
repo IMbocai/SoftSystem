@@ -42,5 +42,63 @@ class AdminAction extends Action{
         }
       }
     }
+
+    //添加成员
+    public function addMenber(){
+      $data['user'] = $_POST['username'];
+      $data['password'] = $_POST['password'];
+      $data['tel'] = $_POST['telphpne'];
+      $data['email'] = $_POST['email'];
+      $data['role'] = $_POST['zubie'];
+      $data['sex'] = $_POST['sex'];
+      $data['leader'] = $_POST['leader'];
+      $userInfo = M('user');
+      $lastInsId = $userInfo->add($data);
+      if($lastInsId){
+        $this->ajaxReturn("","添加成员成功","1");
+      }else{
+        $this->ajaxReturn("","添加成员失败","2");
+      }
+    }
+    //展示成员
+    public function showMenber(){
+      $role['role'] = $_POST['role'];
+      $userInfo = M('user');
+      $result = $userInfo->where($role)->select(); 
+      if(!$result){
+        $this->ajaxReturn($result,"获取成员数据失败","2");
+      }else{
+        $this->ajaxReturn($result,"获取成员数据成功","1");
+      }
+    }
+    //编辑组员
+    public function editMenber(){
+      $data['user'] = $_POST['username'];
+      $data['password'] = $_POST['password'];
+      $data['tel'] = $_POST['telphpne'];
+      $data['email'] = $_POST['email'];
+      $data['role'] = $_POST['zubie'];
+      $data['sex'] = $_POST['sex'];
+      $data['leader'] = $_POST['leader'];
+      $arr['id'] = $_POST['id'];
+      $userInfo = M('user');
+      $lastInsId = $userInfo->where($arr)->save($data);
+      if($lastInsId){
+        $this->ajaxReturn("","编辑成员成功","1");
+      }else{
+        $this->ajaxReturn("","编辑成员失败","2");
+      }
+    }
+    //删除组员
+    public function delMenber(){
+      $arr['id'] = $_POST['id'];
+      $userInfo = M('user');
+      $lastInsId = $userInfo->where($arr)->delete();
+      if($lastInsId){
+        $this->ajaxReturn("","删除成员成功","1");
+      }else{
+        $this->ajaxReturn("","删除成员失败","2");
+      }
+    }
 }
 ?>

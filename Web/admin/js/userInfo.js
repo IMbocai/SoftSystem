@@ -2,9 +2,12 @@ $(document).ready(function(){
 	//加载管理员资料
 	$.get("/home/index.php/Admin/adminInfo",function(result){
 		console.log(result)
-		$("#userName").attr("placeholder",result.username);
+		/*$("#userName").attr("placeholder",result.username);
 		$("#telPhone").attr("placeholder",result.tel);
-		$("#email").attr("placeholder",result.email);
+		$("#email").attr("placeholder",result.email);*/
+		$("#userName").val(result.username);
+		$("#telPhone").val(result.tel);
+		$("#email").val(result.email);
 		if(result.sex == 1){
 			$("#option1").addClass("active");
 		}else{

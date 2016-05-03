@@ -8,7 +8,8 @@ $(document).ready(function(){
 	//用户消息查看
 	 $("[data-toggle='popover']").popover();
 	//获取用户名称
-	/*$.get("/home/index.php/Login/logName",function(result){
+	$.get("/home/index.php/Login/logName",function(result){
+		console.log(result)
 		$("#header_name").text(result);
-	});*/
+	});
 });

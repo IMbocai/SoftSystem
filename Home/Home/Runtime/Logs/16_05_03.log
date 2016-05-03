@@ -70,3 +70,27 @@ INFO: [ app_begin ] --START--
 INFO: Run ReadHtmlCache Behavior [ RunTime:0.001692s ]
 INFO: [ app_begin ] --END-- [ RunTime:0.001802s ]
 
+[ 2016-05-03T22:12:57+08:00 ] 127.0.0.1 /Home/index.php/Public/code
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001659s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001828s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001343s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001493s ]
+
+[ 2016-05-03T22:13:45+08:00 ] 127.0.0.1 /home/index.php/Login/logout
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000974s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001100s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000571s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000653s ]
+
+[ 2016-05-03T22:13:46+08:00 ] 127.0.0.1 /Home/index.php/Public/code
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.002069s ]
+INFO: [ route_check ] --END-- [ RunTime:0.002304s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001313s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001523s ]
+

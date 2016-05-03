@@ -20,7 +20,7 @@
           <a>欢迎登陆</a>
         </li>
         <li class="active">
-          <a id="header_name">admin</a>
+          <a id="header_name"></a>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -86,11 +86,11 @@
 	            <div class="widget yellow">
 	                <div class="widget-body">
 	                    <div id="calendar" class="has-toolbar fc pull-left" style="width:100%;">
-	                    	<ul class="nav nav-tabs">
-	                    	  <li role="presentation" class="active"><a href="#"  style="color:#337AB7;">产品人员</a></li>
-	                    	  <li role="presentation"><a href="#"   style="color:#337AB7;">设计人员</a></li>
-	                    	  <li role="presentation"><a href="#"  style="color:#337AB7;">开发人员</a></li>
-	                    	  <li role="presentation"><a href="#"  style="color:#337AB7;">测试人员</a></li>
+	                    	<ul class="nav nav-tabs" id="selectMenber">
+	                    	  <li role="presentation" class="active"><a data-value="1" href="javascipt:void(0);" style="color:#337AB7;">产品人员</a></li>
+	                    	  <li role="presentation"><a data-value="2" href="javascipt:void(0);" style="color:#337AB7;">设计人员</a></li>
+	                    	  <li role="presentation"><a data-value="3" href="javascipt:void(0);" style="color:#337AB7;">开发人员</a></li>
+	                    	  <li role="presentation"><a data-value="4" href="javascipt:void(0);" style="color:#337AB7;">测试人员</a></li>
 	                    	  <a href="javascript:void(0);" class="btn btn-primary" data-toggle="modal" data-target="#addMember"><i class="glyphicon glyphicon-plus"></i>添加成员</a>
 	                    	</ul>
 	                    	<table class="table table-bordered table-hover">
@@ -106,8 +106,34 @@
 	                                    <th>操作</th>
 	                                </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
+                                <tbody id="showTable">
+                                	<script id="showMenber" type="text/html">
+	                                	{{each list as value i}}
+	                                	<tr>
+	                                		<td>{{value.user}}</td>
+	                                		<td>{{value.password}}</td>
+	                                		<td>{{value.tel}}</td>
+	                                		<td>{{value.email}}</td>
+	                                		<td data-value={{value.leader}}>
+	                                			{{if value.leader == 1}}
+	                                			<i class="glyphicon glyphicon-ok"></i>
+	                                			{{/if}}
+	                                		</td>
+	                                		<td data-value={{value.sex}}>
+	                                			{{if value.sex == 1}}
+	                                			男
+	                                			{{else}}
+	                                			女
+	                                			{{/if}}
+	                                		</td>
+	                                		<td>
+	                                			<a data-value={{value.id}} data-toggle="modal" data-target="#editMember" href="javascript:void(0);" class="btn btn-success edit_a"><i class="glyphicon glyphicon-text-height"></i>编辑</a>
+	                                			<a data-value={{value.id}} data-toggle="modal" data-target="#delMember" href="javascript:void(0);" class="btn btn-danger del_a"><i class="glyphicon glyphicon-trash"></i>删除</a>
+	                                		</td>
+	                                	</tr>
+	                                	{{/each}}
+                                	</script>
+                                    <!-- <tr>
                                         <td>施旭波</td>
                                         <td>123</td>
                                         <td>12345678908</td>
@@ -118,43 +144,7 @@
                                         	<a data-toggle="modal" data-target="#editMember" href="javascript:void(0);" class="btn btn-success"><i class="glyphicon glyphicon-text-height"></i>编辑</a>
                                         	<a data-toggle="modal" data-target="#delMember" href="javascript:void(0);" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i>删除</a>
                                         </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@TwBootstrap</td>
-                                        <td>@TwBootstrap</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>
-                                        	<a href="" class="btn btn-success"><i class="glyphicon glyphicon-text-height"></i>编辑</a>
-                                        	<a data-toggle="modal" data-target="#delMember" href="javascript:void(0);" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i>删除</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@TwBootstrap</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>
-                                        	<a href="" class="btn btn-success"><i class="glyphicon glyphicon-text-height"></i>编辑</a>
-                                        	<a href="" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i>删除</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Larry the Bird</td>
-                                        <td>@TwBootstrap</td>
-                                        <td>@TwBootstrap</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>
-                                        	<a href="" class="btn btn-success"><i class="glyphicon glyphicon-text-height"></i>编辑</a>
-                                        	<a href="" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i>删除</a>
-                                        </td>
-                                    </tr>
+                                    </tr>-->
                                     </tbody>
 	                    	</table>
 	                    </div>
@@ -190,36 +180,36 @@
             <label for="email">邮箱</label>
             <input type="email" class="form-control" id="email" placeholder="jane.doe@example.com">
           </div>
-          <div style="margin:10px 0;" data-toggle="buttons">
+          <div id="zubie" style="margin:10px 0;" data-toggle="buttons">
           		<label for="">组别</label>
-			   <label data-value="" class="btn btn-default" id="option1">
+			   <label data-value="1" class="btn btn-default" id="option1">
 			      <input type="radio" name="options">产品组
 			   </label>
-			   <label data-value="" class="btn btn-default" id="option2">
+			   <label data-value="2" class="btn btn-default" id="option2">
 			      <input type="radio" name="options">设计组
 			   </label>
-			   <label data-value="" class="btn btn-default" id="option2">
+			   <label data-value="3" class="btn btn-default" id="option3">
 			      <input type="radio" name="options">开发组
 			   </label>
-			   <label data-value="" class="btn btn-default" id="option2">
+			   <label data-value="4" class="btn btn-default" id="option4">
 			      <input type="radio" name="options">测试组
 			   </label>
 		   </div>
-		   <div style="margin:10px 0;" data-toggle="buttons">
+		   <div id="sex" style="margin:10px 0;" data-toggle="buttons">
           		<label for="">性别</label>
-			   <label data-value="" class="btn btn-default active" id="option1">
+			   <label data-value="1" class="btn btn-default active" id="sex_option1">
 			      <input type="radio" name="options">男
 			   </label>
-			   <label data-value="" class="btn btn-default" id="option2">
+			   <label data-value="0" class="btn btn-default" id="sex_option2">
 			      <input type="radio" name="options">女
 			   </label>
 		   </div>
-		   <div style="margin:10px 0;" data-toggle="buttons">
+		   <div id="leader" style="margin:10px 0;" data-toggle="buttons">
           		<label for="">组长</label>
-			   <label data-value="" class="btn btn-default active" id="option1">
+			   <label data-value="1" class="btn btn-default active" id="leader_option1">
 			      <input type="radio" name="options">是
 			   </label>
-			   <label data-value="" class="btn btn-default" id="option2">
+			   <label data-value="0" class="btn btn-default" id="leader_option2">
 			      <input type="radio" name="options">否
 			   </label>
 		   </div>
@@ -227,7 +217,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-        <button type="button" class="btn btn-primary">确定</button>
+        <button type="button" class="btn btn-primary" id="sureAdd">确定</button>
       </div>
     </div>
   </div>
@@ -243,51 +233,51 @@
       <div class="modal-body">
         <form>
           <div class="form-group">
-            <label for="username">姓名(登录名)</label>
-            <input type="text" class="form-control" id="username">
+            <label for="edit_username">姓名(登录名)</label>
+            <input type="text" class="form-control" id="edit_username">
           </div>
           <div class="form-group">
-            <label for="password">登陆密码</label>
-            <input type="password" class="form-control" id="password">
+            <label for="edit_password">登陆密码</label>
+            <input type="password" class="form-control" id="edit_password">
           </div>
           <div class="form-group">
-            <label for="telphpne">联系方式</label>
-            <input type="text" class="form-control" id="telphpne">
+            <label for="edit_telphpne">联系方式</label>
+            <input type="text" class="form-control" id="edit_telphpne">
           </div>
           <div class="form-group">
-            <label for="email">邮箱</label>
-            <input type="email" class="form-control" id="email">
+            <label for="edit_email">邮箱</label>
+            <input type="email" class="form-control" id="edit_email">
           </div>
-          <div style="margin:10px 0;" data-toggle="buttons">
+          <div style="margin:10px 0;" data-toggle="buttons" id="edit_role">
           		<label for="">组别</label>
-			   <label data-value="" class="btn btn-default" id="option1">
+			   <label data-value="1" class="btn btn-default" id="edit_role_option1">
 			      <input type="radio" name="options">产品组
 			   </label>
-			   <label data-value="" class="btn btn-default" id="option2">
+			   <label data-value="2" class="btn btn-default" id="edit_role_option2">
 			      <input type="radio" name="options">设计组
 			   </label>
-			   <label data-value="" class="btn btn-default" id="option2">
+			   <label data-value="3" class="btn btn-default" id="edit_role_option3">
 			      <input type="radio" name="options">开发组
 			   </label>
-			   <label data-value="" class="btn btn-default" id="option2">
+			   <label data-value="4" class="btn btn-default" id="edit_role_option4">
 			      <input type="radio" name="options">测试组
 			   </label>
 		   </div>
-		   <div style="margin:10px 0;" data-toggle="buttons">
+		   <div style="margin:10px 0;" data-toggle="buttons" id="edit_sex">
           		<label for="">性别</label>
-			   <label data-value="" class="btn btn-default active" id="option1">
+			   <label data-value="1" class="btn btn-default" id="edit_sex_option1">
 			      <input type="radio" name="options">男
 			   </label>
-			   <label data-value="" class="btn btn-default" id="option2">
+			   <label data-value="0" class="btn btn-default" id="edit_sex_option0">
 			      <input type="radio" name="options">女
 			   </label>
 		   </div>
-		   <div style="margin:10px 0;" data-toggle="buttons">
+		   <div style="margin:10px 0;" data-toggle="buttons" id="edit_leader">
           		<label for="">组长</label>
-			   <label data-value="" class="btn btn-default active" id="option1">
+			   <label data-value="1" class="btn btn-default" id="edit_leader_option1">
 			      <input type="radio" name="options">是
 			   </label>
-			   <label data-value="" class="btn btn-default" id="option2">
+			   <label data-value="0" class="btn btn-default" id="edit_leader_option0">
 			      <input type="radio" name="options">否
 			   </label>
 		   </div>
@@ -295,7 +285,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-        <button type="button" class="btn btn-primary">确定</button>
+        <button data-value="" type="button" class="btn btn-primary" id="sure_edit">确定</button>
       </div>
     </div>
   </div>
@@ -313,7 +303,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-        <button type="button" class="btn btn-primary">确定</button>
+        <button data-value="" type="button" class="btn btn-primary" id="sure_del">确定</button>
       </div>
     </div>
   </div>
@@ -324,6 +314,7 @@
 <script type="text/javascript" src="../public/js/jquery-1.11.1.min.js"></script>
 <script src="../public/bootstrap/js/bootstrap.min.js"></script>
 <script src="../public/js/jquery.nicescroll.min.js"></script>
+<script src="../public/js/template.js"></script>
 <script src="../public/js/logout.js"></script>
 <script>
 	$(document).ready(function(){
@@ -332,7 +323,7 @@
 			cursorwidth: "10px"
 		});
 	})
-
 </script>
+<script src="js/index.js"></script>
 </body>
 </html>
