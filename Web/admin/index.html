@@ -20,12 +20,11 @@
           <a>欢迎登陆</a>
         </li>
         <li class="active">
-          <a>admin</a>
+          <a id="header_name">admin</a>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-      	<li><a href="">消息通知</a></li>
-      	<!-- <li><a href="">修改密码</a></li> -->
+      	<li><a role="button" data-toggle="popover" data-placement="bottom" data-trigger="focus" title="事项通知" data-content="And here's some amazing content. It's very engaging. Right?" data-placement="bottom" href="javascript:void(0);">消息通知<span class="label label-warning">New</span></a></li>
         <li><a id="logout" href="javascript:void(0);">退出</a></li>
       </ul>
     </nav>
@@ -92,7 +91,7 @@
 	                    	  <li role="presentation"><a href="#"   style="color:#337AB7;">设计人员</a></li>
 	                    	  <li role="presentation"><a href="#"  style="color:#337AB7;">开发人员</a></li>
 	                    	  <li role="presentation"><a href="#"  style="color:#337AB7;">测试人员</a></li>
-	                    	  <a href="" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>添加成员</a>
+	                    	  <a href="javascript:void(0);" class="btn btn-primary" data-toggle="modal" data-target="#addMember"><i class="glyphicon glyphicon-plus"></i>添加成员</a>
 	                    	</ul>
 	                    	<table class="table table-bordered table-hover">
 	                    		<thead>
@@ -103,6 +102,7 @@
 	                                    <th>联系方式</th>
 	                                    <th>邮箱</th>
 	                                    <th>是否组长</th>
+	                                    <th>性别</th>
 	                                    <th>操作</th>
 	                                </tr>
                                 </thead>
@@ -113,9 +113,10 @@
                                         <td>12345678908</td>
                                         <td>aa@qq.com</td>
                                         <td><i class="glyphicon glyphicon-ok"></i></td>
+                                        <td>男</td>
                                         <td>
-                                        	<a href="" class="btn btn-success"><i class="glyphicon glyphicon-text-height"></i>编辑</a>
-                                        	<a href="" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i>删除</a>
+                                        	<a data-toggle="modal" data-target="#editMember" href="javascript:void(0);" class="btn btn-success"><i class="glyphicon glyphicon-text-height"></i>编辑</a>
+                                        	<a data-toggle="modal" data-target="#delMember" href="javascript:void(0);" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i>删除</a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -124,9 +125,10 @@
                                         <td>@TwBootstrap</td>
                                         <td>@TwBootstrap</td>
                                         <td></td>
+                                        <td></td>
                                         <td>
                                         	<a href="" class="btn btn-success"><i class="glyphicon glyphicon-text-height"></i>编辑</a>
-                                        	<a href="" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i>删除</a>
+                                        	<a data-toggle="modal" data-target="#delMember" href="javascript:void(0);" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i>删除</a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -134,6 +136,7 @@
                                         <td>Jacob</td>
                                         <td>Thornton</td>
                                         <td>@TwBootstrap</td>
+                                        <td></td>
                                         <td></td>
                                         <td>
                                         	<a href="" class="btn btn-success"><i class="glyphicon glyphicon-text-height"></i>编辑</a>
@@ -145,6 +148,7 @@
                                         <td>Larry the Bird</td>
                                         <td>@TwBootstrap</td>
                                         <td>@TwBootstrap</td>
+                                        <td></td>
                                         <td></td>
                                         <td>
                                         	<a href="" class="btn btn-success"><i class="glyphicon glyphicon-text-height"></i>编辑</a>
@@ -159,6 +163,160 @@
 	        </div>
 	    </div>       
 	 </div>
+</div>
+<!-- 添加成员弹窗 -->
+<div class="modal fade" id="addMember" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">添加成员</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="username">姓名(登录名)</label>
+            <input type="text" class="form-control" id="username" placeholder="Jane Doe">
+          </div>
+          <div class="form-group">
+            <label for="password">登陆密码</label>
+            <input type="password" class="form-control" id="password" placeholder="......">
+          </div>
+          <div class="form-group">
+            <label for="telphpne">联系方式</label>
+            <input type="text" class="form-control" id="telphpne" placeholder="13512451245">
+          </div>
+          <div class="form-group">
+            <label for="email">邮箱</label>
+            <input type="email" class="form-control" id="email" placeholder="jane.doe@example.com">
+          </div>
+          <div style="margin:10px 0;" data-toggle="buttons">
+          		<label for="">组别</label>
+			   <label data-value="" class="btn btn-default" id="option1">
+			      <input type="radio" name="options">产品组
+			   </label>
+			   <label data-value="" class="btn btn-default" id="option2">
+			      <input type="radio" name="options">设计组
+			   </label>
+			   <label data-value="" class="btn btn-default" id="option2">
+			      <input type="radio" name="options">开发组
+			   </label>
+			   <label data-value="" class="btn btn-default" id="option2">
+			      <input type="radio" name="options">测试组
+			   </label>
+		   </div>
+		   <div style="margin:10px 0;" data-toggle="buttons">
+          		<label for="">性别</label>
+			   <label data-value="" class="btn btn-default active" id="option1">
+			      <input type="radio" name="options">男
+			   </label>
+			   <label data-value="" class="btn btn-default" id="option2">
+			      <input type="radio" name="options">女
+			   </label>
+		   </div>
+		   <div style="margin:10px 0;" data-toggle="buttons">
+          		<label for="">组长</label>
+			   <label data-value="" class="btn btn-default active" id="option1">
+			      <input type="radio" name="options">是
+			   </label>
+			   <label data-value="" class="btn btn-default" id="option2">
+			      <input type="radio" name="options">否
+			   </label>
+		   </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary">确定</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 编辑成员弹窗 -->
+<div class="modal fade" id="editMember" tabindex="-1" role="dialog" aria-labelledby="myModalLabel0">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel0">编辑成员</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="username">姓名(登录名)</label>
+            <input type="text" class="form-control" id="username">
+          </div>
+          <div class="form-group">
+            <label for="password">登陆密码</label>
+            <input type="password" class="form-control" id="password">
+          </div>
+          <div class="form-group">
+            <label for="telphpne">联系方式</label>
+            <input type="text" class="form-control" id="telphpne">
+          </div>
+          <div class="form-group">
+            <label for="email">邮箱</label>
+            <input type="email" class="form-control" id="email">
+          </div>
+          <div style="margin:10px 0;" data-toggle="buttons">
+          		<label for="">组别</label>
+			   <label data-value="" class="btn btn-default" id="option1">
+			      <input type="radio" name="options">产品组
+			   </label>
+			   <label data-value="" class="btn btn-default" id="option2">
+			      <input type="radio" name="options">设计组
+			   </label>
+			   <label data-value="" class="btn btn-default" id="option2">
+			      <input type="radio" name="options">开发组
+			   </label>
+			   <label data-value="" class="btn btn-default" id="option2">
+			      <input type="radio" name="options">测试组
+			   </label>
+		   </div>
+		   <div style="margin:10px 0;" data-toggle="buttons">
+          		<label for="">性别</label>
+			   <label data-value="" class="btn btn-default active" id="option1">
+			      <input type="radio" name="options">男
+			   </label>
+			   <label data-value="" class="btn btn-default" id="option2">
+			      <input type="radio" name="options">女
+			   </label>
+		   </div>
+		   <div style="margin:10px 0;" data-toggle="buttons">
+          		<label for="">组长</label>
+			   <label data-value="" class="btn btn-default active" id="option1">
+			      <input type="radio" name="options">是
+			   </label>
+			   <label data-value="" class="btn btn-default" id="option2">
+			      <input type="radio" name="options">否
+			   </label>
+		   </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary">确定</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 删除成员弹窗 -->
+<div class="modal fade" id="delMember" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel1">删除成员</h4>
+      </div>
+      <div class="modal-body">
+      	确定删除该成员？？
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary">确定</button>
+      </div>
+    </div>
+  </div>
 </div>
 <div id="footer">
     2016 © shixubo-3112006441.

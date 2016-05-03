@@ -68,6 +68,10 @@ class LoginAction extends Action{
       } 
     }
     
+    public function logName(){
+      $this->ajaxReturn($_SESSION['username']);
+    }
+
     public function logout(){
     	$_SESSION=array();
  		if(isset($_COOKIE[session_name()])){

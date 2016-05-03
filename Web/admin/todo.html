@@ -21,7 +21,7 @@
           <a>欢迎登陆</a>
         </li>
         <li class="active">
-          <a>admin</a>
+          <a id="header_name">admin</a>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -138,6 +138,10 @@
 						allDay: false
 					},
 				]
+		});
+		//点击日期添加事件
+		$(".fc-day").on("click",function(){
+			var date = $(this).attr("data-date");
 		});
 	})
 

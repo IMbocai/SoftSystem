@@ -1,7 +1,14 @@
 $(document).ready(function(){
+	//用户退出登陆
 	$("#logout").on("click",function(){
 		$.get("/home/index.php/Login/logout",function(re){
 			window.location.replace("http://softsystem.com/");
 		});
 	});
+	//用户消息查看
+	 $("[data-toggle='popover']").popover();
+	//获取用户名称
+	/*$.get("/home/index.php/Login/logName",function(result){
+		$("#header_name").text(result);
+	});*/
 });
