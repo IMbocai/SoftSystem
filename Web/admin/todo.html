@@ -185,22 +185,10 @@
 			cursorcolor:"#1A86C0",
 			cursorwidth: "10px"
 		});
-		var date = new Date();
-		var d = date.getDate();
-		var m = date.getMonth();
-		var y = date.getFullYear();
 		var params;//存储任务信息
+		//获取用户拥有的任务
 		$('#calendar').fullCalendar({
-			events: [
-					{
-						id:1,
-						title:"测试",
-						start:"2016/5/5",
-						end:"2016/5/06",
-						taskLevel:3,
-						taskStatus:1
-					}
-				],
+			events:'/home/index.php/Task/showTask',
 			eventClick: function(calEvent, jsEvent, view) {
 	            var s_Date = $.fullCalendar.formatDate(calEvent.start,'yyyy-MM-dd');
 	            var e_Date = "";
@@ -208,7 +196,7 @@
 	                e_Date = $.fullCalendar.formatDate(calEvent.end,'yyyy-MM-dd');
 	            }
 	            params = {
-	                "id":calEvent.id,
+	                "id":calEvent.taskId,
 	                "title" :calEvent.title,
 	                "startdate":s_Date,
 	                "enddate":e_Date,
@@ -228,16 +216,18 @@
 			$("#endTime").val(date);
 		});
 		//查看任务editTodo
-		$(".fc-event-inner").each(function(){
-			$(this).attr("data-toggle","modal");
-			$(this).attr("data-target","#editTodo")
-		});
+		setTimeout(function(){
+			$(".fc-event-inner").each(function(){
+				$(this).attr("data-toggle","modal");
+				$(this).attr("data-target","#editTodo")
+			});
+		},100);
 		$("#calendar").on("click",".fc-event-inner",function(){
 			console.log(params);
 			$("#editForm").attr("data-value",params.id);
 			$("#edit_taskName").val(params.title);
 			$("#edit_startTime").val(params.startdate);
-			$("#edit_endTime").val(params.enddate);
+			params.enddate == "" ? $("#edit_endTime").val(params.startdate) : $("#edit_endTime").val(params.enddate);
 			$("#edit_taskLevel").val(params.taskLevel);
 			$("#edit_taskStatus").val(params.taskStatus);
 		});

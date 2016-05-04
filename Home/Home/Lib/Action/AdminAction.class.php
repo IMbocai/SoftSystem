@@ -13,9 +13,15 @@ class AdminAction extends Action{
       $data['tel'] = $_POST['telPhone'];
       $data['email'] = $_POST['email'];
       $data['sex'] = $_POST['sex'];
+      $_SESSION['username']=$_POST['username'];//更改session
       $admin=M('admin');//管理员信息表
-      $count = $admin->where('id=1')->save($data); 
+      $count = $admin->where('id=0')->save($data); 
       if($count){
+        //更改task表内用户名
+        $taskN['username'] = $_SESSION['username'];
+        $task=M('task');
+        $task->where('userId=0')->save($taskN); 
+        //
         $this->ajaxReturn("","更改成功","1");
       }else{
         $this->ajaxReturn("","更改失败","0");

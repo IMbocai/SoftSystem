@@ -56,7 +56,7 @@ class LoginAction extends Action{
          		{
          			session_start();
 					$_SESSION['username']=$username;
-					$_SESSION['id']=$id;
+					$_SESSION['id']=$arr['id'];
 					$_SESSION['login'] = $level;
          			$this->ajaxReturn("true","","1");
          		 }
