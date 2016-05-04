@@ -96,6 +96,81 @@
             </div>       
          </div>
 </div>
+<!-- 添加任务弹窗 -->
+<div class="modal fade" id="showTodo">
+  <div class="modal-dialog" style="width:400px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">新建任务</h4>
+      </div>
+      <div class="modal-body">
+        <form action="">
+        	<label for="taskName">任务名称</label>
+        	<input type="text" class="form-control" id="taskName" placeholder="请输入任务名称">
+        	<label for="startTime">开始时间</label>
+        	<input type="date" class="form-control" id="startTime">
+        	<label for="endTime">结束时间</label>
+        	<input type="date" class="form-control" id="endTime" >
+        	<label for="taskLevel">优先级</label>
+        	<select id="taskLevel" class="form-control selLevel" autocomplete="off">                        
+        		<option value="0">低</option>                        
+        		<option value="1">中</option>                        
+        		<option value="2">高</option>                        
+        		<option value="3">紧急</option>                    
+        	</select>
+        	<label for="taskStatus">任务状态</label>
+        	<select id="taskStatus" class="form-control" autocomplete="off">                        
+        		<option value="0">进行中</option>                        
+        		<option value="1">已完成</option>                      
+        	</select>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-success" id="addTask">创建</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
+<!-- 编辑任务弹窗 -->
+<div class="modal fade" id="editTodo">
+  <div class="modal-dialog" style="width:400px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">编辑(查看)任务</h4>
+      </div>
+      <div class="modal-body">
+        <form action="" id="editForm" data-value="">
+        	<label for="edit_taskName">任务名称</label>
+        	<input type="text" class="form-control" id="edit_taskName">
+        	<label for="edit_startTime">开始时间</label>
+        	<input type="date" class="form-control" id="edit_startTime">
+        	<label for="edit_endTime">结束时间</label>
+        	<input type="date" class="form-control" id="edit_endTime" >
+        	<label for="edit_taskLevel">优先级</label>
+        	<select id="edit_taskLevel" class="form-control selLevel">                        
+        		<option value="0">低</option>                        
+        		<option value="1">中</option>                        
+        		<option value="2">高</option>                        
+        		<option value="3">紧急</option>                    
+        	</select>
+        	<label for="edit_taskStatus">任务状态</label>
+        	<select id="edit_taskStatus" class="form-control" autocomplete="off">                        
+        		<option value="0">进行中</option>                        
+        		<option value="1">已完成</option>                      
+        	</select>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-danger" id="delTask">删除</button>
+        <button type="button" class="btn btn-success" id="sureTask">保存</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
 <div id="footer">
        2016 © shixubo-3112006441.
 </div>
@@ -114,34 +189,126 @@
 		var d = date.getDate();
 		var m = date.getMonth();
 		var y = date.getFullYear();
+		var params;//存储任务信息
 		$('#calendar').fullCalendar({
 			events: [
 					{
-						title: '全天计划\r\n#####\r\n写代码',
-						start: new Date(y, m, 1)
-					},
-					{
-						id: 999,
-						title: '电话回访客户',
-						start: new Date(y, m, d-6, 16, 0),
-						allDay: false
-					},
-					{
-						id: 999,
-						title: '电话回访客户',
-						start: new Date(y, m, d+4, 16, 0),
-						allDay: false
-					},
-					{
-						title: '视频会议',
-						start: new Date(y, m, d, 10, 30),
-						allDay: false
-					},
-				]
+						id:1,
+						title:"测试",
+						start:"2016/5/5",
+						end:"2016/5/06",
+						taskLevel:3,
+						taskStatus:1
+					}
+				],
+			eventClick: function(calEvent, jsEvent, view) {
+	            var s_Date = $.fullCalendar.formatDate(calEvent.start,'yyyy-MM-dd');
+	            var e_Date = "";
+	            if(calEvent.end){
+	                e_Date = $.fullCalendar.formatDate(calEvent.end,'yyyy-MM-dd');
+	            }
+	            params = {
+	                "id":calEvent.id,
+	                "title" :calEvent.title,
+	                "startdate":s_Date,
+	                "enddate":e_Date,
+	                "taskLevel":calEvent.taskLevel,
+	                "taskStatus":calEvent.taskStatus
+	            };
+	        }
 		});
 		//点击日期添加事件
-		$(".fc-day").on("click",function(){
+		$(".fc-day").each(function(){
+			$(this).attr("data-toggle","modal");
+			$(this).attr("data-target","#showTodo")
+		});
+		$("#calendar").on("click",".fc-day",function(){
 			var date = $(this).attr("data-date");
+			$("#startTime").val(date);
+			$("#endTime").val(date);
+		});
+		//查看任务editTodo
+		$(".fc-event-inner").each(function(){
+			$(this).attr("data-toggle","modal");
+			$(this).attr("data-target","#editTodo")
+		});
+		$("#calendar").on("click",".fc-event-inner",function(){
+			console.log(params);
+			$("#editForm").attr("data-value",params.id);
+			$("#edit_taskName").val(params.title);
+			$("#edit_startTime").val(params.startdate);
+			$("#edit_endTime").val(params.enddate);
+			$("#edit_taskLevel").val(params.taskLevel);
+			$("#edit_taskStatus").val(params.taskStatus);
+		});
+		//删除任务
+		$("#delTask").on("click",function(){
+			var taskId = $("#editForm").attr("data-value");
+			$.post("/home/index.php/Task/delTask",{//删除任务接口
+				taskId:taskId
+			},function(result){
+				console.log(result);
+				if(result.status == 1){
+					window.location.reload();
+				}else{
+					alert("任务编辑失败，请重试");
+					return false;
+				}
+			});
+		});
+		//编辑任务
+		$("#sureTask").on("click",function(){
+			var taskId = $("#editForm").attr("data-value");
+			var taskName = $("#edit_taskName").val(),
+				startTime = $("#edit_startTime").val(),
+				endTime = $("#edit_endTime").val(),
+				taskLevel = $("#edit_taskLevel").val(),
+				taskStatus = $("#edit_taskStatus").val();
+			$.post("/home/index.php/Task/editTask",{//编辑任务接口
+				taskId:taskId,
+				taskName:taskName,
+				startTime:startTime,
+				endTime:endTime,
+				taskLevel:taskLevel,
+				taskStatus:taskStatus
+			},function(result){
+				console.log(result);
+				if(result.status == 1){
+					alert("任务编辑成功");
+					window.location.reload();
+				}else{
+					alert("任务编辑失败，请重试");
+					return false;
+				}
+			});
+		});
+		//添加任务
+		$("#addTask").on("click",function(){
+			var taskName = $("#taskName").val(),
+				startTime = $("#startTime").val(),
+				endTime = $("#endTime").val(),
+				taskLevel = $("#taskLevel").val(),
+				taskStatus = $("#taskStatus").val();
+			if(!taskName || !startTime || !endTime || !taskLevel || !taskStatus){
+				alert("请填写信息完整");
+				return false;
+			}else{
+				$.post("/home/index.php/Task/addTask",{//添加任务接口
+					taskName:taskName,
+					startTime:startTime,
+					endTime:endTime,
+					taskLevel:taskLevel,
+					taskStatus:taskStatus
+				},function(result){
+					if(result.status == 1){
+						alert("任务创建成功");
+						window.location.reload();
+					}else{
+						alert("任务创建失败，请重试");
+						return false;
+					}
+				});
+			}
 		});
 	})
 
